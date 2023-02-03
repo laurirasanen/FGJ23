@@ -6,6 +6,8 @@ public class RootController : MonoBehaviour
 {
     public float MoveSpeed = 5.0f;
     public float TurnSpeed = 180.0f;
+    public float SlitherSpeed = 5.0f;
+    public float SlitherAngle = 60.0f;
 
     private RootCharacter rootCharacter;
     private Vector3 headPosition;
@@ -26,14 +28,20 @@ public class RootController : MonoBehaviour
         }
 
         var horizontal = Input.GetAxis("Horizontal");
+        Quaternion quat;
+
         if (Mathf.Abs(horizontal) > Mathf.Epsilon)
         {
-            var quat = Quaternion.Euler(0, horizontal * TurnSpeed * Time.deltaTime, 0);
-            headDirection = quat * headDirection;
+            quat = Quaternion.Euler(0, horizontal * TurnSpeed * Time.deltaTime, 0);
+        }
+        else
+        {
+            quat = Quaternion.Euler(0, Mathf.Sin(Time.time * SlitherSpeed) * SlitherAngle * Time.deltaTime, 0);
         }
 
+        headDirection = quat * headDirection;
         headPosition += headDirection * MoveSpeed * Time.deltaTime;
-        
+
         rootCharacter.MoveHead(headPosition);
         Camera.main.transform.position = headPosition + new Vector3(0, 10.0f, 0);
     }
