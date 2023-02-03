@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RootController : MonoBehaviour
 {
-    public float MoveSpeed = 5.0f;
     public float TurnSpeed = 180.0f;
     public float SlitherSpeed = 5.0f;
     public float SlitherAngle = 60.0f;
@@ -40,7 +39,7 @@ public class RootController : MonoBehaviour
         }
 
         headDirection = quat * headDirection;
-        headPosition += headDirection * MoveSpeed * Time.deltaTime;
+        headPosition += headDirection * rootCharacter.MoveSpeed * Time.deltaTime;
 
         rootCharacter.MoveHead(headPosition);
         Camera.main.transform.position = headPosition + new Vector3(0, 10.0f, 0);
