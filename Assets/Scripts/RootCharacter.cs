@@ -6,14 +6,14 @@ using UnityEngine;
 public class RootCharacter : MonoBehaviour
 {
     public float MoveSpeed = 5.0f;
-    public float TurnSpeed = 90.0f;
+    public float TurnSpeed = 180.0f;
     public float LineSimplifyThreshold = 0.01f;
 
     private LineRenderer lineRenderer;
     private float lastVertexTime;
     private Vector3 headPosition;
     private Vector3 headDirection;
-    private int lastSimplifyFrame;
+    private int verticesSinceSimplify;
 
     void Start()
     {
@@ -36,11 +36,12 @@ public class RootCharacter : MonoBehaviour
 
         AddVertex();
 
-        if (lastSimplifyFrame > 10)
+        if (verticesSinceSimplify > 10)
         {
             var prevCount = lineRenderer.positionCount;
             lineRenderer.Simplify(LineSimplifyThreshold);
-            Debug.Log($"RootCharacter.AddVertex: simplify {prevCount} -> {lineRenderer.positionCount}");
+            // Debug.Log($"RootCharacter.AddVertex: simplify {prevCount} -> {lineRenderer.positionCount}");
+            verticesSinceSimplify = 0;
         }
     }
 
@@ -49,5 +50,6 @@ public class RootCharacter : MonoBehaviour
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, headPosition);
         lastVertexTime = Time.time;
+        verticesSinceSimplify++;
     }
 }

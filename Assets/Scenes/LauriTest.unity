@@ -352,6 +352,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4695569786862589597, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695569786862589597, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695569786862589597, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.5063262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695569786862589597, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.2405079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695569786862589598, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
+      propertyPath: LineSimplifyThreshold
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4695569786862589599, guid: 2014c917374b54dc4911c1caa1d59d56, type: 3}
       propertyPath: m_Name
       value: RootCharacter
