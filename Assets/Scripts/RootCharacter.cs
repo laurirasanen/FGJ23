@@ -10,11 +10,13 @@ public class RootCharacter : MonoBehaviour
     public float LengthToEndColor = 100.0f;
 
     private LineRenderer lineRenderer;
+    private SphereCollider sphereCollider;
     private int verticesSinceOptimize;
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        sphereCollider = GetComponent<SphereCollider>();
         lineRenderer.positionCount = 0;
         AddVertex(transform.position);
     }
@@ -51,6 +53,13 @@ public class RootCharacter : MonoBehaviour
             tempKeys[0].time = frac;
             temp.colorKeys = tempKeys;
             lineRenderer.colorGradient = temp;
+        }
+
+        var colliders = Physics.OverlapSphere(position, 0.15f);
+        foreach (var c in colliders)
+        {
+            var human = c.GetComponent<Human>();
+            human?.Explode();
         }
     }
 }
