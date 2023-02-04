@@ -59,7 +59,10 @@ public class Root : MonoBehaviour
                 var flat = Vector3.ProjectOnPlane(direction, hit.normal);
                 // add normal so we can't clip into walls by running into
                 // them repeatedly
-                direction = (flat + hit.normal * CollisionBounce).normalized;
+                direction = (flat + hit.normal * CollisionBounce);
+                // don't go to the moon
+                direction.y = 0;
+                direction.Normalize();
 
                 // audio
                 if (CollisionAudioClips.Count > 0)
