@@ -35,8 +35,12 @@ public class RootCharacter : Root
             if (human)
             {
                 human.Explode();
-                // Add new branch immediately
-                nextBranchTime = 0;
+                // Add some new branches immediately
+                for (int i = 0; i < 2; i++)
+                {
+                    nextBranchTime = 0;
+                    TryAddBranch(position, direction);
+                }                
             }
         }
 
