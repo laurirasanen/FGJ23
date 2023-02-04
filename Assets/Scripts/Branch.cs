@@ -34,7 +34,7 @@ public class Branch : Root
         var quat = Quaternion.Euler(0, Mathf.Sin(Time.time * SlitherSpeed) * SlitherAngle * Time.deltaTime, 0);
         headDirection = quat * headDirection;
         headPosition += headDirection * MoveSpeed * Time.deltaTime;
-        MoveHead(headPosition, headDirection);
+        headDirection = MoveHead(headPosition, headDirection);
 
         // Max length
         if (GetLifetime() * MoveSpeed > targetLength)

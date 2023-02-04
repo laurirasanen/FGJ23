@@ -9,10 +9,13 @@ public class Root : MonoBehaviour
     public float LengthToEndColor = 100.0f;
     public float LineSimplifyThreshold = 0.01f;
     public uint SimplifyInterval = 100;
+    public bool CheckCollisions = true;
+    public float CollisionLookahead = 0.1f;
 
     protected LineRenderer lineRenderer;
     private uint verticesSinceOptimize;
     private float startTime;
+    private Vector3 lastHeadPosition;
 
     public virtual void Start()
     {
@@ -20,6 +23,7 @@ public class Root : MonoBehaviour
         lineRenderer.material.SetFloat("_ColorLength", LengthToEndColor);
         lineRenderer.positionCount = 0;
         startTime = Time.time;
+        lastHeadPosition = transform.position;
         AddVertex(transform.position, transform.forward);
     }
 
@@ -35,16 +39,31 @@ public class Root : MonoBehaviour
         }
     }
 
-    public virtual void MoveHead(Vector3 position, Vector3 direction)
+    public virtual Vector3 MoveHead(Vector3 position, Vector3 direction)
     {
         if (lineRenderer.positionCount == 0)
         {
-            return;
+            return direction;
         }
-        
+
+        if (CheckCollisions)
+        {
+            var move = position - lastHeadPosition;
+            if (Physics.Raycast(lastHeadPosition, move, out var hit, move.magnitude + CollisionLookahead))
+            {
+                // direction = Vector3.Reflect(direction, hit.normal);
+                direction = Vector3.ProjectOnPlane(direction, hit.normal);
+                direction.Normalize();
+            }
+        }
+
+        lastHeadPosition = position;
+
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, position);
 
         lineRenderer.material.SetFloat("_Length", GetLifetime() * MoveSpeed);
+
+        return direction;
     }
 
     protected float GetLifetime()

@@ -24,9 +24,9 @@ public class RootCharacter : Root
         base.AddVertex(position, direction);
     }
 
-    public override void MoveHead(Vector3 position, Vector3 direction)
+    public override Vector3 MoveHead(Vector3 position, Vector3 direction)
     {
-        base.MoveHead(position, direction);
+        direction = base.MoveHead(position, direction);
 
         var colliders = Physics.OverlapSphere(position, 0.15f);
         foreach (var c in colliders)
@@ -41,6 +41,7 @@ public class RootCharacter : Root
         }
 
         TryAddBranch(position, direction);
+        return direction;
     }
 
     private void TryAddBranch(Vector3 position, Vector3 direction)
