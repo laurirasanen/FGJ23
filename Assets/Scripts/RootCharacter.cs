@@ -17,6 +17,7 @@ public class RootCharacter : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         sphereCollider = GetComponent<SphereCollider>();
+        lineRenderer.material.SetFloat("_ColorLength", LengthToEndColor);
         lineRenderer.positionCount = 0;
         AddVertex(transform.position);
     }
@@ -42,18 +43,7 @@ public class RootCharacter : MonoBehaviour
         
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, position);
 
-        // adjust color gradient so that the tail doesn't
-        // take longer to change color the longer the root.
-        var currentLength = Time.time * MoveSpeed;
-        var frac = 1.0f - LengthToEndColor / currentLength;
-        if (frac > 0)
-        {
-            var temp = lineRenderer.colorGradient;
-            var tempKeys = temp.colorKeys;
-            tempKeys[0].time = frac;
-            temp.colorKeys = tempKeys;
-            lineRenderer.colorGradient = temp;
-        }
+        lineRenderer.material.SetFloat("_Length", Time.time * MoveSpeed);
 
         var colliders = Physics.OverlapSphere(position, 0.15f);
         foreach (var c in colliders)
