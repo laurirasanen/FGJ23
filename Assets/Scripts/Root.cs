@@ -12,6 +12,9 @@ public class Root : MonoBehaviour
     public bool CheckCollisions = true;
     public float CollisionLookahead = 0.1f;
     public float CollisionBounce = 0.5f;
+    public List<AudioSource> MovingAudioSources;
+    public AudioSource CollisionAudioSource;
+    public List<AudioClip> CollisionAudioClips;
 
     protected LineRenderer lineRenderer;
     private uint verticesSinceOptimize;
@@ -52,10 +55,19 @@ public class Root : MonoBehaviour
             var move = position - lastHeadPosition;
             if (Physics.Raycast(lastHeadPosition, move, out var hit, move.magnitude + CollisionLookahead, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
             {
+                // bounce from wall
                 var flat = Vector3.ProjectOnPlane(direction, hit.normal);
                 // add normal so we can't clip into walls by running into
                 // them repeatedly
                 direction = (flat + hit.normal * CollisionBounce).normalized;
+
+                // audio
+                if (CollisionAudioClips.Count > 0)
+                {
+                    CollisionAudioSource.clip = CollisionAudioClips[Random.Range(0, CollisionAudioClips.Count)];
+                    CollisionAudioSource.enabled = true;
+                    CollisionAudioSource.Play();
+                }
             }
         }
 
@@ -64,6 +76,11 @@ public class Root : MonoBehaviour
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, position);
 
         lineRenderer.material.SetFloat("_Length", GetLifetime() * MoveSpeed);
+
+        foreach (var a in MovingAudioSources)
+        {
+            a.transform.position = position;
+        }
 
         return direction;
     }
