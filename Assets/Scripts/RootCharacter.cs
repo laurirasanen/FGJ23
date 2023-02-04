@@ -32,7 +32,12 @@ public class RootCharacter : Root
         foreach (var c in colliders)
         {
             var human = c.GetComponent<Human>();
-            human?.Explode();
+            if (human)
+            {
+                human.Explode();
+                // Add new branch immediately
+                nextBranchTime = 0;
+            }
         }
 
         TryAddBranch(position, direction);
