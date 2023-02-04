@@ -41,12 +41,12 @@ public class RootController : MonoBehaviour
         headDirection = quat * headDirection;
         headPosition += headDirection * rootCharacter.MoveSpeed * Time.deltaTime;
 
-        rootCharacter.MoveHead(headPosition);
+        rootCharacter.MoveHead(headPosition, headDirection);
         Camera.main.transform.position = headPosition + new Vector3(0, 10.0f, 0);
     }
 
     void FixedUpdate()
     {
-        rootCharacter.AddVertex(headPosition);
+        rootCharacter.AddVertex(headPosition, headDirection);
     }
 }

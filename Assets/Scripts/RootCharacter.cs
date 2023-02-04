@@ -2,54 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class RootCharacter : MonoBehaviour
+public class RootCharacter : Root
 {
-    public float MoveSpeed = 5.0f;
-    public float LineSimplifyThreshold = 0.01f;
-    public float LengthToEndColor = 100.0f;
+    public Branch BranchPrefab;
+    public float BranchIntervalMin = 0.5f;
+    public float BranchIntervalMax = 1.5f;
 
-    private LineRenderer lineRenderer;
     private SphereCollider sphereCollider;
-    private int verticesSinceOptimize;
+    private float nextBranchTime;
 
-    void Start()
+    public override void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+        base.Start();
         sphereCollider = GetComponent<SphereCollider>();
-        lineRenderer.material.SetFloat("_ColorLength", LengthToEndColor);
-        lineRenderer.positionCount = 0;
-        AddVertex(transform.position);
+        lineRenderer.material.SetFloat("_YOffset", 0.1f);
+        nextBranchTime = Time.time + BranchIntervalMax;
     }
 
-    public void AddVertex(Vector3 position)
+    public override void AddVertex(Vector3 position, Vector3 direction)
     {
-        MoveHead(position);
-        lineRenderer.positionCount++;
-        verticesSinceOptimize++;
-        if (verticesSinceOptimize > 100)
-        {
-            lineRenderer.Simplify(LineSimplifyThreshold);
-            verticesSinceOptimize = 0;
-        }
+        base.AddVertex(position, direction);
     }
 
-    public void MoveHead(Vector3 position)
+    public override void MoveHead(Vector3 position, Vector3 direction)
     {
-        if (lineRenderer.positionCount == 0)
-        {
-            return;
-        }
-        
-        lineRenderer.SetPosition(lineRenderer.positionCount - 1, position);
-
-        lineRenderer.material.SetFloat("_Length", Time.time * MoveSpeed);
+        base.MoveHead(position, direction);
 
         var colliders = Physics.OverlapSphere(position, 0.15f);
         foreach (var c in colliders)
         {
             var human = c.GetComponent<Human>();
             human?.Explode();
+        }
+
+        TryAddBranch(position, direction);
+    }
+
+    private void TryAddBranch(Vector3 position, Vector3 direction)
+    {
+        if (Time.time > nextBranchTime)
+        {
+            var quat = Quaternion.LookRotation(direction, Vector3.up);
+            quat *= Quaternion.Euler(0, Random.value * 360.0f, 0);
+            Instantiate(BranchPrefab, position, quat);
+            nextBranchTime = Time.time + BranchIntervalMin + Random.value * (BranchIntervalMax - BranchIntervalMin);
         }
     }
 }

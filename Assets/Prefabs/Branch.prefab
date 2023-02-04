@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4695569786862589599
+--- !u!1 &8096849907454395362
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4695569786862589596}
-  - component: {fileID: 4695569786862589597}
-  - component: {fileID: 4695569786862589598}
-  - component: {fileID: -6895450823763274536}
-  - component: {fileID: 916587463}
+  - component: {fileID: 8096849907454395361}
+  - component: {fileID: 8096849907454395360}
+  - component: {fileID: 5888976252969384380}
   m_Layer: 0
-  m_Name: RootCharacter
+  m_Name: Branch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4695569786862589596
+--- !u!4 &8096849907454395361
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
+  m_GameObject: {fileID: 8096849907454395362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!120 &4695569786862589597
+--- !u!120 &8096849907454395360
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
+  m_GameObject: {fileID: 8096849907454395362}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -87,7 +85,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5063262
+        value: 0.2616439
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -96,7 +94,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.2405079
+        value: 0.027740642
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -143,49 +141,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &4695569786862589598
+--- !u!114 &5888976252969384380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
+  m_GameObject: {fileID: 8096849907454395362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609ade185f7274caeb9357eb2467e830, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bc3b82c7f1773208ad3a290fb4f44a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  LengthToEndColor: 100
+  MoveSpeed: 2
+  LengthToEndColor: 10
   LineSimplifyThreshold: 0.01
   SimplifyInterval: 100
-  BranchPrefab: {fileID: 5888976252969384380, guid: 0e0fed7ec65307c2696ce5c0fa53393b, type: 3}
-  BranchInterval: 1
---- !u!114 &-6895450823763274536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6eecd3f97794e2b745d2bfbf432fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TurnSpeed: 180
-  SlitherSpeed: 5
+  SlitherSpeed: 1
   SlitherAngle: 60
---- !u!135 &916587463
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}
