@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8096849907454395361}
-  - component: {fileID: 8096849907454395360}
   - component: {fileID: 5888976252969384380}
+  - component: {fileID: 8096849907454395360}
   m_Layer: 0
   m_Name: Branch
   m_TagString: Untagged
@@ -33,6 +33,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5888976252969384380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8096849907454395362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc3b82c7f1773208ad3a290fb4f44a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 2
+  LengthToEndColor: 10
+  LineSimplifyThreshold: 0.01
+  SimplifyInterval: 100
+  CheckCollisions: 1
+  CollisionLookahead: 0.5
+  SlitherSpeed: 1
+  SlitherAngle: 60
+  MinLength: 10
+  MaxLength: 30
 --- !u!120 &8096849907454395360
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -141,23 +163,3 @@ LineRenderer:
     generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &5888976252969384380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8096849907454395362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc3b82c7f1773208ad3a290fb4f44a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 2
-  LengthToEndColor: 10
-  LineSimplifyThreshold: 0.01
-  SimplifyInterval: 100
-  SlitherSpeed: 1
-  SlitherAngle: 60
-  MinLength: 10
-  MaxLength: 30
