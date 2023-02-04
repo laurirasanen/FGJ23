@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4695569786862589597}
   - component: {fileID: 4695569786862589598}
   - component: {fileID: -6895450823763274536}
-  - component: {fileID: 916587463}
   m_Layer: 0
   m_Name: RootCharacter
   m_TagString: Untagged
@@ -140,7 +139,7 @@ LineRenderer:
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!114 &4695569786862589598
@@ -160,7 +159,8 @@ MonoBehaviour:
   LineSimplifyThreshold: 0.01
   SimplifyInterval: 100
   BranchPrefab: {fileID: 5888976252969384380, guid: 0e0fed7ec65307c2696ce5c0fa53393b, type: 3}
-  BranchInterval: 1
+  BranchIntervalMin: 0.5
+  BranchIntervalMax: 1.5
 --- !u!114 &-6895450823763274536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,16 +176,3 @@ MonoBehaviour:
   TurnSpeed: 180
   SlitherSpeed: 5
   SlitherAngle: 60
---- !u!135 &916587463
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}
