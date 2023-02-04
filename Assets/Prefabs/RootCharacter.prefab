@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4695569786862589596}
-  - component: {fileID: 4695569786862589597}
   - component: {fileID: 4695569786862589598}
   - component: {fileID: -6895450823763274536}
-  - component: {fileID: 916587463}
+  - component: {fileID: 4695569786862589597}
   m_Layer: 0
   m_Name: RootCharacter
   m_TagString: Untagged
@@ -35,6 +34,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4695569786862589598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695569786862589599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609ade185f7274caeb9357eb2467e830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
+  LengthToEndColor: 100
+  LineSimplifyThreshold: 0.01
+  SimplifyInterval: 100
+  CheckCollisions: 1
+  CollisionLookahead: 0.1
+  BranchPrefab: {fileID: 5888976252969384380, guid: 0e0fed7ec65307c2696ce5c0fa53393b, type: 3}
+  BranchIntervalMin: 0.5
+  BranchIntervalMax: 1.5
+--- !u!114 &-6895450823763274536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4695569786862589599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd6eecd3f97794e2b745d2bfbf432fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnSpeed: 180
+  SlitherSpeed: 5
+  SlitherAngle: 60
+  CameraPositionOffset: {x: 0, y: 10, z: -3}
 --- !u!120 &4695569786862589597
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -143,49 +179,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &4695569786862589598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609ade185f7274caeb9357eb2467e830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  LengthToEndColor: 100
-  LineSimplifyThreshold: 0.01
-  SimplifyInterval: 100
-  BranchPrefab: {fileID: 5888976252969384380, guid: 0e0fed7ec65307c2696ce5c0fa53393b, type: 3}
-  BranchInterval: 1
---- !u!114 &-6895450823763274536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6eecd3f97794e2b745d2bfbf432fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TurnSpeed: 180
-  SlitherSpeed: 5
-  SlitherAngle: 60
---- !u!135 &916587463
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695569786862589599}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}

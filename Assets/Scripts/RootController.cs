@@ -7,6 +7,7 @@ public class RootController : MonoBehaviour
     public float TurnSpeed = 180.0f;
     public float SlitherSpeed = 5.0f;
     public float SlitherAngle = 60.0f;
+    public Vector3 CameraPositionOffset = new Vector3(0, 10.0f, -3.0f);
 
     private RootCharacter rootCharacter;
     private Vector3 headPosition;
@@ -42,7 +43,7 @@ public class RootController : MonoBehaviour
         headPosition += headDirection * rootCharacter.MoveSpeed * Time.deltaTime;
 
         headDirection = rootCharacter.MoveHead(headPosition, headDirection);
-        Camera.main.transform.position = headPosition + new Vector3(0, 10.0f, 0);
+        Camera.main.transform.position = headPosition + CameraPositionOffset;
     }
 
     void FixedUpdate()
