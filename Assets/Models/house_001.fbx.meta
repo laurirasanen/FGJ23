@@ -3,7 +3,37 @@ guid: fbefc5a13382b8d47ba47d5ef5158734
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brown
+    second: {fileID: 2100000, guid: 8c7db4fecc256634f859c2977337cc28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light wall
+    second: {fileID: 2100000, guid: a2d263df0da13da4b8c1eb21911fd568, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: 017888e0e3dd0bf4390bde4d6dc87978, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone dark
+    second: {fileID: 2100000, guid: 90d0e5f8e8225894e9f3b9f06c6b17cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone light
+    second: {fileID: 2100000, guid: 22b2073133a634e42a25fda173807e9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window
+    second: {fileID: 2100000, guid: 006db9fc32c719943bde6e4fe99c969b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
