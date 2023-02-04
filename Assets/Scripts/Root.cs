@@ -49,11 +49,12 @@ public class Root : MonoBehaviour
         if (CheckCollisions)
         {
             var move = position - lastHeadPosition;
-            if (Physics.Raycast(lastHeadPosition, move, out var hit, move.magnitude + CollisionLookahead))
+            if (Physics.Raycast(lastHeadPosition, move, out var hit, move.magnitude + CollisionLookahead, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
             {
-                // direction = Vector3.Reflect(direction, hit.normal);
-                direction = Vector3.ProjectOnPlane(direction, hit.normal);
-                direction.Normalize();
+                var flat = Vector3.ProjectOnPlane(direction, hit.normal);
+                // add normal so we can't clip into walls by running into
+                // them repeatedly
+                direction = (flat + hit.normal * 0.5f).normalized;
             }
         }
 
