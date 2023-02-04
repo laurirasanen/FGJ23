@@ -50,7 +50,8 @@ MonoBehaviour:
   LineSimplifyThreshold: 0.01
   SimplifyInterval: 100
   CheckCollisions: 1
-  CollisionLookahead: 0.5
+  CollisionLookahead: 0.1
+  CollisionBounce: 0.05
   SlitherSpeed: 1
   SlitherAngle: 60
   MinLength: 10

@@ -11,6 +11,7 @@ public class Root : MonoBehaviour
     public uint SimplifyInterval = 100;
     public bool CheckCollisions = true;
     public float CollisionLookahead = 0.1f;
+    public float CollisionBounce = 0.5f;
 
     protected LineRenderer lineRenderer;
     private uint verticesSinceOptimize;
@@ -54,7 +55,7 @@ public class Root : MonoBehaviour
                 var flat = Vector3.ProjectOnPlane(direction, hit.normal);
                 // add normal so we can't clip into walls by running into
                 // them repeatedly
-                direction = (flat + hit.normal * 0.5f).normalized;
+                direction = (flat + hit.normal * CollisionBounce).normalized;
             }
         }
 
