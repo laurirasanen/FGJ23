@@ -5,13 +5,13 @@ A game for Finnish Game Jam 2023.
 ## Team
 
 Piia Kemppainen - Art
-- https://piiakemppainen.artstation.com
+- https://www.artstation.com/piiakemppainen
 
 Lauri Räsänen - Code, Audio
 - https://rasanen.dev
 
 Janne Viitala - Art
-- https://rarrix.artstation.com
+- https://www.artstation.com/rarrix
 
 ## Screenshots
 
