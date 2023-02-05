@@ -110,7 +110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722895392923397748}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 1692707035463277374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1722895392923397745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,8 +130,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5861403, y: 1.0053716, z: 4.3065033}
-  m_Center: {x: -0.20168191, y: 0.0026848018, z: -2.0338426}
+  m_Size: {x: 1.5861403, y: 4.761052, z: 1.7314122}
+  m_Center: {x: -0.20168191, y: 1.8805246, z: -0.010155559}
 --- !u!114 &1722895392923397744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d64c42541ff766f8a48e683be5b8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BloodParticles: {fileID: 4129601741187318085, guid: 4f5cb1058a0bb3e30b1f17deddcad5b2, type: 3}
+  BloodParticles: {fileID: 2858732044236560521, guid: 6465f3a0414d9db499b81d779f05ca91, type: 3}
   Anim: {fileID: 5157828568659466021}
   DeathSounds:
   - {fileID: 8300000, guid: f4962d68f86a7367d9e94f9dd09af721, type: 3}
@@ -793,7 +793,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9204253225055759595}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5879112, y: 0.5879112, z: 0.5879112}
   m_ConstrainProportionsScale: 0
@@ -803,4 +803,4 @@ Transform:
   - {fileID: 3403445924470236975}
   m_Father: {fileID: 1722895392923397750}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
