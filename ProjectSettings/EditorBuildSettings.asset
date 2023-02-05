@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LauriTest.unity
-    guid: eadbb5800a87ec683a4c47aaa080e064
+    path: Assets/Scenes/Menu.unity
+    guid: 7aec69756146bb80d9b90c7243354291
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 07842e616d33049eb990dd905d07cdb4
   m_configObjects:
     io.coherence.simulator.build.options: {fileID: 11400000, guid: 823b143e4ea0e788ba32f828ce157f1f, type: 2}

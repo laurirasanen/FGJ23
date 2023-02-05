@@ -8,9 +8,9 @@ public class Human : MonoBehaviour
     public ParticleSystem BloodParticles;
     public Animator Anim;
     public List<AudioClip> DeathSounds;
+    public bool IsDead;
 
     private AudioSource audioSource;
-    private bool isDead;
 
     public void Start()
     {
@@ -19,11 +19,11 @@ public class Human : MonoBehaviour
 
     public void Explode()
     {
-        if (isDead)
+        if (IsDead)
         {
             return;
         }
-        isDead = true;
+        IsDead = true;
         
         Anim.SetTrigger("Die");
 
