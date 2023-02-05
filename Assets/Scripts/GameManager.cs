@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public Text HumansText;
+    public TMPro.TextMeshProUGUI HumansText;
 
     private List<Human> humans;
 
