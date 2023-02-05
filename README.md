@@ -4,6 +4,8 @@ A game made in less than 48 hours for Finnish Game Jam 2023.
 
 https://globalgamejam.org/2023/games/rootbrew-8
 
+Brewed in the toxic cauldron of a witch, you are a magical root spreading all across the land. You have been sent forth by your creator to slay all humans of the nearby village.
+
 ## Team
 
 Piia Kemppainen - Art
