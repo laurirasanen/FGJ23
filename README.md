@@ -1,4 +1,4 @@
-# Finnish Game Jam 2023
+# Rootbrew
 
 A game for Finnish Game Jam 2023.
 
