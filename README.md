@@ -1,6 +1,8 @@
 # Rootbrew
 
-A game for Finnish Game Jam 2023.
+A game made in less than 48 hours for Finnish Game Jam 2023.
+
+https://globalgamejam.org/2023/games/rootbrew-8
 
 ## Team
 
