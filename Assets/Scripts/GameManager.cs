@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (humans.Count > 10)
+            if (humans.Count > 5)
             {
                 HumansText.text = $"Slay them all!";
             }
