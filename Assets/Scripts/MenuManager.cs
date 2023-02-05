@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         OpenMain();
     }
 

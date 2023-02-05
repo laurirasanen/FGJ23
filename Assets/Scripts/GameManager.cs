@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.visible = true;
         paused = true;
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible= false;
         paused = false;
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        Cursor.visible = true;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
