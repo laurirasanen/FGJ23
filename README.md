@@ -19,4 +19,4 @@ Janne Viitala - Art
 
 ![screenshot](/screenshots/gameplay_01.png)
 
-![screenshot](/screenshots/well.png)
+![screenshot](/screenshots/gameplay_02.png)
