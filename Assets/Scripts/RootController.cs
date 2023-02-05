@@ -8,16 +8,22 @@ public class RootController : MonoBehaviour
     public float SlitherSpeed = 5.0f;
     public float SlitherAngle = 60.0f;
     public Vector3 CameraPositionOffset = new Vector3(0, 10.0f, -3.0f);
+    public float StartDelay = 1.0f;
+    public float StartLerp = 1.0f;
 
     private RootCharacter rootCharacter;
     private Vector3 headPosition;
     private Vector3 headDirection;
+    private float startTime;
+    private float startInterp;
 
     void Start()
     {
         rootCharacter = GetComponent<RootCharacter>();
         headDirection = transform.forward;
         headPosition = transform.position;
+        startTime = Time.time;
+        Camera.main.transform.position = headPosition + CameraPositionOffset;
     }
 
     void Update()
@@ -26,6 +32,16 @@ public class RootController : MonoBehaviour
         {
             return;
         }
+
+        // wait before moving
+        if (Time.time - startTime < StartDelay)
+        {
+            return;
+        }
+
+        // start slowly after delay ends
+        startInterp = Mathf.Lerp(0.0f, 1.0f, (Time.time - (startTime + StartDelay)) / StartLerp);
+        startInterp = Mathf.Clamp01(startInterp);
 
         var horizontal = Input.GetAxis("Horizontal");
         Quaternion quat;
@@ -40,7 +56,7 @@ public class RootController : MonoBehaviour
         }
 
         headDirection = quat * headDirection;
-        headPosition += headDirection * rootCharacter.MoveSpeed * Time.deltaTime;
+        headPosition += headDirection * rootCharacter.MoveSpeed * Time.deltaTime * startInterp;
 
         headDirection = rootCharacter.MoveHead(headPosition, headDirection);
         Camera.main.transform.position = headPosition + CameraPositionOffset;
