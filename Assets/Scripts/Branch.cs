@@ -25,6 +25,11 @@ public class Branch : Root
 
     public void Update()
     {
+        if (Time.timeScale < float.Epsilon)
+        {
+            return;
+        }
+
         if (finishedGrowing)
         {
             return;
@@ -46,6 +51,11 @@ public class Branch : Root
 
     public void FixedUpdate()
     {
+        if (Time.timeScale < float.Epsilon)
+        {
+            return;
+        }
+
         if (finishedGrowing)
         {
             return;

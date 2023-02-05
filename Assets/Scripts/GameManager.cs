@@ -25,6 +25,23 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (paused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+
+        if (Time.timeScale < float.Epsilon)
+        {
+            return;
+        }
+
         humans = humans.Where(h => h != null && !h.IsDead).ToList();
 
         if (humans.Count < startingCount)
@@ -53,18 +70,6 @@ public class GameManager : MonoBehaviour
             else
             {
                 HumansText.text = "You have done well";
-            }
-        }
-
-        if (Input.GetButtonDown("Cancel"))
-        {
-            if (paused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
             }
         }
     }

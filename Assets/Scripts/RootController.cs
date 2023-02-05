@@ -22,9 +22,9 @@ public class RootController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Time.timeScale < float.Epsilon)
         {
-            Application.Quit();
+            return;
         }
 
         var horizontal = Input.GetAxis("Horizontal");
@@ -48,6 +48,11 @@ public class RootController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Time.timeScale < float.Epsilon)
+        {
+            return;
+        }
+
         rootCharacter.AddVertex(headPosition, headDirection);
     }
 }
