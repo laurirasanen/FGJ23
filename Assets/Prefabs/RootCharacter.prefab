@@ -52,7 +52,7 @@ MonoBehaviour:
   LineSimplifyThreshold: 0.01
   SimplifyInterval: 100
   CheckCollisions: 1
-  CollisionLookahead: 0.1
+  CollisionLookahead: 0.25
   CollisionBounce: 0.5
   MovingAudioSources:
   - {fileID: 2643433970659379403}
@@ -61,8 +61,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f9f554880c8b0be2fbb3462f2e4c4bfd, type: 3}
   - {fileID: 8300000, guid: fc788a832421063df85d54c3341f59ea, type: 3}
   BranchPrefab: {fileID: 5888976252969384380, guid: 0e0fed7ec65307c2696ce5c0fa53393b, type: 3}
-  BranchIntervalMin: 0.5
-  BranchIntervalMax: 1.5
+  BranchIntervalMin: 0.2
+  BranchIntervalMax: 1
 --- !u!114 &-6895450823763274536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   TurnSpeed: 180
   SlitherSpeed: 5
   SlitherAngle: 60
-  CameraPositionOffset: {x: 0, y: 10, z: -3}
+  CameraPositionOffset: {x: 0, y: 10, z: -6}
 --- !u!120 &4695569786862589597
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142823507845080661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
