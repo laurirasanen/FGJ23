@@ -24,3 +24,7 @@ Janne Viitala - Art
 ![screenshot](/screenshots/gameplay_01.png)
 
 ![screenshot](/screenshots/gameplay_02.png)
+
+## Gameplay
+
+[![youtube video](http://img.youtube.com/vi/cfZFR6GUBFE/maxresdefault.jpg)](https://www.youtube.com/watch?v=cfZFR6GUBFE)
