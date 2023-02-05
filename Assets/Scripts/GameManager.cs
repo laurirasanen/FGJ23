@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject PauseMenu;
 
     private List<Human> humans;
-    private bool killedOne;
+    private int killCount;
     private int startingCount;
     private bool paused;
 
@@ -44,33 +44,31 @@ public class GameManager : MonoBehaviour
 
         humans = humans.Where(h => h != null && !h.IsDead).ToList();
 
-        if (humans.Count < startingCount)
-        {
-            killedOne = true;
-        }
+        killCount = startingCount - humans.Count;
 
-        if (!killedOne)
+        if (killCount == 0)
         {
-            HumansText.text = $"Go forth";
+            HumansText.text = "Go forth";
+        }
+        else if (killCount == 1)
+        {
+            HumansText.text = "Slay them all!";
+        }
+        else if (humans.Count > 1 && humans.Count <= 5)
+        {
+            HumansText.text = $"{humans.Count} knights remain!";
+        }
+        else if (humans.Count == 1)
+        {
+            HumansText.text = "Leave no survivors!";
+        }
+        else if (humans.Count == 0)
+        {
+            HumansText.text = "You have done well";
         }
         else
         {
-            if (humans.Count > 5)
-            {
-                HumansText.text = $"Slay them all!";
-            }
-            else if (humans.Count > 1)
-            {
-                HumansText.text = $"{humans.Count} knights remain!";
-            }
-            else if (humans.Count == 1)
-            {
-                HumansText.text = $"Leave no survivors!";
-            }
-            else
-            {
-                HumansText.text = "You have done well";
-            }
+            HumansText.text = "";
         }
     }
 
@@ -84,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-        Cursor.visible= false;
+        Cursor.visible = false;
         paused = false;
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;

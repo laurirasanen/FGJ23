@@ -15,6 +15,8 @@ Janne Viitala - Art
 
 ## Screenshots
 
-![screenshot](/screenshots/well.png)
+![screenshot](/screenshots/menu.png)
 
 ![screenshot](/screenshots/gameplay_01.png)
+
+![screenshot](/screenshots/well.png)
